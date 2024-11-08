@@ -1,0 +1,56 @@
+{% extends "donor/donor_base.html" %}
+{% block Search_bar %}
+ <form method="get" class="form-inline search-form">
+        <div class="d-none d-md-flex ms-4">
+            {{bloodfilter.form}}
+            <br>
+            <button class="btn btn-primary nr-2" type="submit">Search</button>
+        </div>
+
+    </form>
+{% endblock %}
+{% block content %}
+
+
+
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Receiver_name</th>
+      <th scope="col">date</th>
+      <th scope="col">blood</th>
+      <th scope="col">hospital</th>
+      <th scope="col">place</th>
+      <th scope="col">contact</th>
+        <th scope="col">donate</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.Receiver_name.name}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.blood}}</td>
+      <td>{{i.hospital}}</td>
+      <td>{{i.place}}</td>
+      <td>{{i.contact}}</td>
+        {% if i.status == 0 %}
+        <td><a href="{% url 'donate' i.id %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">donate</a></td>
+         {% elif i.status == 1 %}
+        <td><h6>donation processing</h6></td>
+        {% elif i.status == 2 %}
+        <td><h6>donation completed</h6></td>
+        {% endif %}
+
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+{% endblock %}

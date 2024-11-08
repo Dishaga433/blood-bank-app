@@ -1,0 +1,15 @@
+
+{% extends "receiver/receiver_base.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+
+
+<form METHOD="POST">
+  {% csrf_token %}
+  {{form|crispy}}
+  <button type="submit">submit</button>
+</form>
+
+
+{% endblock %}

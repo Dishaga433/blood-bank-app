@@ -1,0 +1,24 @@
+{% extends "receiver/receiver_base.html" %}
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+  <img src="{{form.document.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{form.name}}</h5>
+
+  </div>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{form.age}}</li>
+    <li class="list-group-item">{{form.DOB}}</li>
+    <li class="list-group-item">{{form.ph_no}}</li>
+    <li class="list-group-item">{{form.email}}</li>
+      <li class="list-group-item">{{form.address}}</li>
+    <li class="list-group-item">{{form.blood}}</li>
+  </ul>
+  <td><a href="{% url 'receiver_update' form.id %}" class= "btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Update</a></td>
+
+
+</div>
+
+
+{% endblock %}

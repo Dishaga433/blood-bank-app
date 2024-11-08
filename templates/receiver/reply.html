@@ -1,0 +1,43 @@
+{% extends "receiver/receiver_base.html" %}
+{% block content %}
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Receiver_name</th>
+      <th scope="col">message</th>
+      <th scope="col">date</th>
+      <th scope="col">reply</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.receiver_name.name}}</td>
+      <td>{{i.message}}</td>
+      <td>{{i.date}}</td>
+
+      {% if i.reply == None %}
+     <td><h6>No reply</h6></td>
+      {% else  %}
+      <td>{{i.reply}}</td>
+
+        {% endif %}
+
+
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+
+
+
+
+{% endblock %}
